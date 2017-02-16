@@ -26,7 +26,15 @@ deviceClient.on('connect', function () {
 
 });
 
-
+deviceClient.on("command", function (commandName,format,payload,topic) {
+    if(commandName === "blink") {
+        console.log(blink);
+        //function to be performed for this command
+        blink(payload);
+    } else {
+        console.log("Command not supported.. " + commandName);
+    }
+});
 
 
 console.log('XXXXXXXXXXXXX');
